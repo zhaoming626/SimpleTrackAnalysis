@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Demo</title>
+    <title>Simple speed analysis</title>
     
     <!-- Include order: first jquery, then opencpu.js, and then your code -->
     <script src="library/jquery.min.js"></script>
@@ -47,9 +47,10 @@
   </head>
     
   <body style="">
-    <h1>Demo</h1>
+    <h1>Simple speed Analysis</h1>
     
-    <b>n (count) </b> <input type="number" id="nfield" value="5">
+    <b>Minimum speed: (km/h)</b> <input type="number" id="nfield" value="5"><br/><br/>
+	<p>Track data points with speed less than Minimum speed will be filted out.</p>
     
     <br>
     <button id="submitbutton" type="button">Submit to server!</button>
@@ -57,5 +58,6 @@
     <div id="plotdiv"></div>      
 
     <br>
-    
+    <p>Track Data Size: <b>Number</b> <br/>
+		<b>Number</b> is the size of dataset after filtering track data with speed less than Minimum speed.</p>
 </body></html>
