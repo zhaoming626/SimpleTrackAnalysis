@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Demo</title>
+    
+    <!-- Include order: first jquery, then opencpu.js, and then your code -->
+    <script src="library/jquery.min.js"></script>
+    <script src="library/opencpu-0.4.js"></script>
+
+    <script>
+    //init this script when the page has loaded
+    $(document).ready(function(){
+      $("#submitbutton").on("click", function(){
+        
+        //disable the button to prevent multiple clicks
+        $("#submitbutton").attr("disabled", "disabled");
+        
+        //read the value for 'myname'
+        var nfield = parseInt($("#nfield").val());
+        
+        //create the plot area on the plotdiv element
+        var req = $("#plotdiv").rplot("speedAnalysis", {
+          minSpeed : nfield,
+        })
+
+        //if R returns an error, alert the error message
+        req.fail(function(){
+          alert("Server error: " + req.responseText);
+        });
+        
+        //after request complete, re-enable the button 
+        req.always(function(){
+          $("#submitbutton").removeAttr("disabled")
+        });
+      });
+    });
+    </script>
+    
+    <style>
+      #plotdiv {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        border: solid gray 1px;
+      }
+    </style>
+    
+  </head>
+    
+  <body style="">
+    <h1>Demo</h1>
+    
+    <b>n (count) </b> <input type="number" id="nfield" value="5">
+    
+    <br>
+    <button id="submitbutton" type="button">Submit to server!</button>
+    
+    <div id="plotdiv"></div>      
+
+    <br>
+    
+</body></html>
