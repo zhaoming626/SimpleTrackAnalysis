@@ -8,7 +8,7 @@ To run the app in your local R session:
 #install app
 library(devtools)
 
-install_github("demo", "opencpu")
+install_github("SimpleTrackAnalysis", "zhaoming626")
 
 
 #load in opencpu
