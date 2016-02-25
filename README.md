@@ -7,8 +7,11 @@ To run the app in your local R session:
 
 #install app
 library(devtools)
+
 install_github("demo", "opencpu")
+
 
 #load in opencpu
 library(opencpu)
+
 opencpu$browse("/library/demo/www")
