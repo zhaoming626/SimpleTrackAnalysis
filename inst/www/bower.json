@@ -1,0 +1,29 @@
+{
+  "name": "simpleTrackAnalysis",
+  "authors": [
+    "Ming Zhao <zhaoming626@yeah.net>"
+  ],
+  "description": "simpleTrackAnalysis",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "track"
+  ],
+  "license": "MIT",
+  "homepage": "zhaoming.net.cn/simpleTrackAnalysis",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "opencpu.js": "opencpu#*",
+    "jquery": "^2.2.1",
+    "angular": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "leaflet": "^0.7.7"
+  }
+}

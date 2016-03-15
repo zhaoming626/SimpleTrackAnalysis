@@ -1,0 +1,32 @@
+{
+  "name": "opencpu.js",
+  "homepage": "https://github.com/dataflows/opencpu.js",
+  "authors": [
+    "Filip Stachura <filip@appsilon.pl>"
+  ],
+  "description": "OpenCPU fork for bower installation.",
+  "main": "opencpu-0.5.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "opencpu"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "24b9c33851",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "24b9c33851707b9fffa764887aec95e4ffacda09"
+  },
+  "_source": "git://github.com/dataflows/opencpu.js.git",
+  "_target": "*",
+  "_originalSource": "opencpu"
+}

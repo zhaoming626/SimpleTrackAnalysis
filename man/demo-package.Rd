@@ -1,32 +1,32 @@
-\name{demo-package}
-\alias{demo-package}
-\alias{demo}
+\name{simpleTrackAnalysis-package}
+\alias{simpleTrackAnalysis-package}
+\alias{simpleTrackAnalysis}
 \docType{package}
 \title{
-\packageTitle{demo}
+\packageTitle{simpleTrackAnalysis}
 }
 \description{
-\packageDescription{demo}
+\packageDescription{simpleTrackAnalysis}
 }
 \details{
 
 The DESCRIPTION file:
-\packageDESCRIPTION{demo}
-\packageIndices{demo}
+\packageDESCRIPTION{simpleTrackAnalysis}
+\packageIndices{simpleTrackAnalysis}
 ~~ An overview of how to use the package, including the most important ~~
 ~~ functions ~~
 }
 \author{
-\packageAuthor{demo}
+\packageAuthor{simpleTrackAnalysis}
 
-Maintainer: \packageMaintainer{demo}
+Maintainer: \packageMaintainer{simpleTrackAnalysis}
 }
 \references{
 ~~ Literature or other references for background information ~~
 }
 ~~ Optionally other standard keywords, one per line, from file KEYWORDS ~~
 ~~ in the R documentation directory ~~
-\keyword{ package }
+\keyword{ trackAnalysis }
 \seealso{
 ~~ Optional links to other man pages, e.g. ~~
 ~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~

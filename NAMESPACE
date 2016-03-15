@@ -1,2 +1,4 @@
 export(speedAnalysis)
-import(plot3D)
+export(getProperties)
+export(getCenter)
+import(geosphere)

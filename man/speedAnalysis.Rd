@@ -49,8 +49,6 @@ speedAnalysis(minSpeed)
 ## The function is currently defined as
 function (minSpeed) 
 {
-    library(plot3D)
-    trackSample <- read.csv("sample.csv")
     filterFlag <- trackSample$Speed.km.h. >= minSpeed
     filterResult <- trackSample[filterFlag, ]
     with(filterResult, text2D(x = longitude, y = latitude, colvar = Speed.km.h., 

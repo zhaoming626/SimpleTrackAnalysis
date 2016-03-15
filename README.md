@@ -14,4 +14,4 @@ install_github("SimpleTrackAnalysis", "zhaoming626")
 #load in opencpu
 library(opencpu)
 
-opencpu$browse("/library/demo/www")
+opencpu$browse("/library/simpleTrackAnalysis/www")
