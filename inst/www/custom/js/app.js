@@ -2,12 +2,13 @@ var app = angular.module('simpleTrackAnalysisApp', []);
 
 app.controller("simpleTrackAnalysisController", function ($scope) {
 
-	$scope.minimumSpeed = 0;
+	$scope.minSpeed = 0;
+	$scope.maxSpeed = 100;
 	$scope.overview = new Object();
 	$scope.statistical = new Object();
 	$scope.map = new Object();
 	$scope.polylinePoints = new Array();
-	$scope.dataSize = null;
+	$scope.dataSize = 0;
 
 	$scope.polylineOptions = {
 		color: 'blue',
@@ -56,6 +57,19 @@ app.controller("simpleTrackAnalysisController", function ($scope) {
 		req.fail(function(){
 			alert("Server error: " + req.responseText);
 		});
+	};
+
+	var clearMap =function (){
+		for(var i in $scope.map._layers) {
+			if($scope.map._layers[i]._path != undefined) {
+				try {
+					$scope.map.removeLayer($scope.map._layers[i]);
+				}
+				catch(e) {
+					console.log("problem with " + e + $scope.map._layers[i]);
+				}
+			}
+		}
 	}
 
 	var initialization = function (){
@@ -69,26 +83,34 @@ app.controller("simpleTrackAnalysisController", function ($scope) {
 
 		$("#submitbutton").on("click", function(){
 
+			clearMap();
+
+			$scope.dataSize = 0;
+			$scope.polylinePoints.length = 0;
+
 			//disable the button to prevent multiple clicks
 			$("#submitbutton").attr("disabled", "disabled");
 
-			//read the value for 'minimumSpeed'
-			var minimumSpeed = parseInt($("#minimumSpeed").val());
-
-			//create the plot area on the plotdiv element
+			//get track points satisfying the filter
 			var req = ocpu.rpc("speedAnalysis", {
-				minSpeed : minimumSpeed,
+				minSpeed : $scope.minSpeed,
+				maxSpeed : $scope.maxSpeed
 			}, function(output){
 				output.forEach(function(element, index, array) {
-					if($scope.dataSize == null){
-						$scope.dataSize = array.length;
+
+					if($scope.dataSize == 0){
+						$scope.$apply(function(){
+							$scope.dataSize = array.length;
+						});
 					};
-					if($scope.dataSize != null && index == $scope.dataSize - 1) {
+
+					if($scope.dataSize != 0 && index == $scope.dataSize - 1) {
 						var polyline = new L.Polyline($scope.polylinePoints, $scope.polylineOptions);
 						$scope.map.addLayer(polyline);
 						// zoom the map to the polyline
 						$scope.map.fitBounds(polyline.getBounds());
 					};
+
 					$scope.polylinePoints.push(new L.LatLng(element['latitude'], element['longitude']));
 				});
 			});

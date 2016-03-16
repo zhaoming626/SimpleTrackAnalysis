@@ -10,16 +10,21 @@
 <body>
 <div ng-app="simpleTrackAnalysisApp" ng-controller="simpleTrackAnalysisController">
     <h1>Simple track Analysis</h1>
-
-    <b>Minimum speed: (km/h)</b> <input type="number" id="minimumSpeed" ng-model="minimumSpeed"><br/><br/>
-    <p>Track data points with speed less than {{minimumSpeed}} km/h will be filtered out.</p>
-
-    <br>
-    <button id="submitbutton" type="button">Submit to server!</button>
-
-    <div id="map" style="height:500px;width:1000px">
-
+    <div class="row">
+        <div class="col-sm-3">
+            <b>Min. speed: (km/h)</b> <input type="number" ng-model="minSpeed">
+        </div>
+        <div class="col-sm-3">
+            <b>Max. speed: (km/h)</b> <input type="number" ng-model="maxSpeed">
+        </div>
+        <div class="col-sm-6">
+            <button id="submitbutton" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Submit to server!</button>
+        </div>
     </div>
+    <p>Track points with speed less than {{minSpeed}} km/h or larger than {{maxSpeed}} km/h will be filtered out.</p>
+    <br/><br/>
+    <span>DataSize: {{dataSize}}</span>
+    <div id="map" style="height:500px;width:1000px"></div>
     <div class="container">
         <div class="row">
             <h3>Track Overview</h3>

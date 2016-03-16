@@ -5,8 +5,9 @@ function(){
 }
 
 speedAnalysis <-
-function(minSpeed){
-	filterFlag <- trackSample$Speed.km.h. >= minSpeed
+function(minSpeed, maxSpeed){
+	speed <- trackSample$Speed.km.h.
+	filterFlag <- (speed >= minSpeed & speed <= maxSpeed)
 	filterResult <- trackSample[filterFlag,c('longitude', 'latitude')]
 	#Directly Generating Map in R
 
@@ -28,7 +29,7 @@ function(){
 	length <- length(trackSample)
 	starttime <- trackSample$time[1]
 	endtime <- trackSample$time[length]
-    startpoint <- c(trackSample$longitude[1], trackSample$latitude[1])
+	startpoint <- c(trackSample$longitude[1], trackSample$latitude[1])
 	endpoint <- c(trackSample$longitude[length], trackSample$latitude[length])
 	distance <- distHaversine(startpoint, endpoint)
 	speedMean <- mean(trackSample$Speed.km.h., na.rm = T)
