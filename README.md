@@ -6,8 +6,8 @@ See [simpleTrackAnalysis](http://zhaoming626.ocpu.io/simpleTrackAnalysis/www)
 
 The purpose of this OpenCPU app is to demonstrate how to use the opencpu.js library for calling R functions from Javascript using OpenCPU.
 
-*Use locally
-*To run the app in your local R session:
+* Use locally
+* To run the app in your local R session:
 
 #Install the app
 
